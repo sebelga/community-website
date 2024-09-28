@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@fullpage/react-fullpage": "^0.1.44",
+    "modern-normalize": "^3.0.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },

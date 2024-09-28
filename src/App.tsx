@@ -1,8 +1,10 @@
-import { useState } from 'react';
-import ReactFullpage from '@fullpage/react-fullpage';
+import { useState, createContext, useContext } from 'react';
+import ReactFullpage, { fullpageApi } from '@fullpage/react-fullpage';
 import reactLogo from './assets/react.svg';
 import viteLogo from '/vite.svg';
 import './App.css';
+import { FullpageProvider } from './app_context';
+import PresentationSection from './sections/presentation_section';
 
 function App() {
   const [count, setCount] = useState(0);
@@ -32,19 +34,18 @@ function App() {
 const Fullpage = () => (
   <ReactFullpage
     //fullpage options
-    credits={{enabled: true}}
-    scrollingSpeed={1000} /* Options here */
+    credits={{ enabled: false, label: '' }}
+    scrollingSpeed={1000}
     render={({ state, fullpageApi }) => {
       return (
-        <ReactFullpage.Wrapper>
-          <div className="section">
-            <p>Section 1 (welcome to fullpage.js)</p>
-            <button onClick={() => fullpageApi.moveSectionDown()}>Click me to move down</button>
-          </div>
-          <div className="section">
-            <p>Section 2</p>
-          </div>
-        </ReactFullpage.Wrapper>
+        <FullpageProvider value={{ fullpageApi }}>
+          <ReactFullpage.Wrapper>
+            <PresentationSection />
+            <div className="section">
+              <p>Section 2</p>
+            </div>
+          </ReactFullpage.Wrapper>
+        </FullpageProvider>
       );
     }}
   />
