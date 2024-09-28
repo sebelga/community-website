@@ -1,4 +1,65 @@
 #root {
   margin: 0 auto;
+}
+
+.section {
+  width: 100%;
+}
+
+.section::before {
+  content: ' ';
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.5;
+  background-repeat: no-repeat;
+  background-position: 50% 0;
+  background-size: cover;
+}
+
+.section.presentation {
   text-align: center;
+}
+.section.presentation::before {
+  background-image: url('/bkg-00.jpg');
+}
+
+.sectionContent {
+  position: relative;
+}
+
+.imgCol {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.sectionContent--inverse .imgCol {
+  justify-content: flex-start;
+}
+
+.wrapperContent {
+  max-width: 600px;
+  padding-left: 32px;
+}
+
+.contentCol {
+  display: flex;
+}
+
+.sectionContent--inverse .contentCol {
+  justify-content: flex-end;
+}
+.sectionContent--inverse .wrapperContent {
+  padding-left: 0;
+  padding-right: 32px;
+}
+
+img.image-section {
+  width: auto;
+  height: auto;
+  max-height: 700px;
+  border-radius: 16px;
 }

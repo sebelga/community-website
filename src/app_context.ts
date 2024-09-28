@@ -1,8 +1,15 @@
 import { createContext, useContext } from 'react';
 import { fullpageApi } from '@fullpage/react-fullpage';
 
+export interface FullPageState {
+  initialized: boolean;
+  sectionCount: number;
+  slideCount: number;
+}
+
 export interface Context {
-  fullpageApi: fullpageApi
+  fullpageApi: fullpageApi;
+  state: FullPageState;
 }
 
 const FullpageContext = createContext<Context | null>(null);
@@ -14,4 +21,4 @@ export const useFullpage = () => {
     throw new Error('useFullpage must be used within a FullpageProvider');
   }
   return context;
-}
+};
