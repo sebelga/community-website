@@ -20,10 +20,10 @@
   background-size: cover;
 }
 
-.section.presentation {
+.section.home {
   text-align: center;
 }
-.section.presentation::before {
+.section.home::before {
   background-image: url('/bkg-00.jpg');
 }
 
